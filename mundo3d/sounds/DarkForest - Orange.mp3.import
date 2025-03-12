@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvq8jlg2pv15y"
+path="res://.godot/imported/DarkForest - Orange.mp3-e364caa0488d657aac5a0e692b33e529.mp3str"
+
+[deps]
+
+source_file="res://sounds/DarkForest - Orange.mp3"
+dest_files=["res://.godot/imported/DarkForest - Orange.mp3-e364caa0488d657aac5a0e692b33e529.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

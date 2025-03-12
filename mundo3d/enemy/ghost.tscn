@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpie66wsogg4i"]
+
+[ext_resource type="Texture2D" uid="uid://jqevixyf1mmm" path="res://enemy/ghost.png" id="1_cd4nn"]
+[ext_resource type="Script" path="res://enemy/ghost.gd" id="1_quykx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_30fl1"]
+
+[sub_resource type="Animation" id="Animation_7wmvf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cx6xl"]
+resource_name = "idle"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ery0b"]
+_data = {
+"RESET": SubResource("Animation_7wmvf"),
+"idle": SubResource("Animation_cx6xl")
+}
+
+[node name="Ghost" type="CharacterBody3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_quykx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_30fl1")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+modulate = Color(0.694744, 0.809326, 1, 1)
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_cd4nn")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ery0b")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.211461, 0.500926, 1, 1)
